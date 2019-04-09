@@ -9,16 +9,16 @@ router.get("/", (ctx) => {
 	.get("/users", (ctx) => {
 		ctx.status =200;
 		ctx.body="hello users";
+	})
+	.put("/users/:id", (ctx) => {
+		const {id} = ctx.pramas;
+		ctx.body=`put id=${id}`;
+	})
+	.delete("/users/:id", (ctx) => {
+		const {id} = ctx.pramas;
+		ctx.body=`del id=${id}`;
 	});
-// .put("/users/:id", (ctx, next) => {
-// 	// ...
-// })
-// .del("/users/:id", (ctx, next) => {
-// 	// ...
-// })
-// .all("/users/:id", (ctx, next) => {
-// 	// ...
-// });
+
 
 app.use(router.routes());
 app.listen(1000);
